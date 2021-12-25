@@ -1,12 +1,15 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { BigNumber, ethers } from "ethers";
+import twitterLogo from "./assets/twitter-logo.svg";
 import ThreeWordsNFT from "../../artifacts/contracts/ThreeWordsNFT.sol/ThreeWordsNFT.json";
 
 const currentAccount = ref(null);
 const mintedNFTsSoFar = ref(null);
 const isMinting = ref(false);
 const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
+const TWITTER_HANDLE = "lightyaer";
+const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 onMounted(() => {
   checkIfWalletIsConnected();
@@ -135,6 +138,7 @@ const askContractToMintNFT = async () => {
     }
   } catch (error) {
     console.log(error);
+    isMinting.value = false;
   }
 };
 </script>
@@ -170,6 +174,30 @@ const askContractToMintNFT = async () => {
         >
           Connect to Wallet
         </button>
+      </div>
+      <div class="footer-container">
+        <img alt="Twitter Logo" class="twitter-logo" :src="twitterLogo" />
+        <div>
+          <p class="footer-text">
+            Made with ❤️ by
+            <a
+              class="footer-text"
+              :href="TWITTER_LINK"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @{{ TWITTER_HANDLE }}
+            </a>
+          </p>
+        </div>
+        <a
+          class="footer-text"
+          href="https://twitter.com/_buildspace"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Built on @_buildspace
+        </a>
       </div>
     </div>
   </div>
@@ -263,6 +291,25 @@ code {
 .mint-count {
   color: white;
   font-size: 1rem;
+  font-weight: bold;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.twitter-logo {
+  width: 35px;
+  height: 35px;
+}
+
+.footer-text {
+  color: white;
+  font-size: 16px;
   font-weight: bold;
 }
 

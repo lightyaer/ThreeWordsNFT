@@ -1,0 +1,17 @@
+{
+  "name": "three-words-nft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "web",
+    "ethereum"
+  ],
+  "scripts": {
+    "web:dev": "yarn workspace web dev",
+    "web:build": "yarn workspace web build",
+    "web:preview": "yarn workspace web preview",
+    "ethereum:deploy": "yarn workspace ethereum deploy"
+  }
+}

@@ -1,0 +1,21 @@
+node_modules
+.DS_Store
+web/dist
+web/dist-ssr
+web/node_modules
+
+.idea
+.idea/*
+
+ethereum/coverage
+ethereum/coverage.json
+ethereum/typechain
+ethereum/node_modules
+
+#Hardhat files
+ethereum/cache
+artifacts
+
+#env
+*.env
+*.local
